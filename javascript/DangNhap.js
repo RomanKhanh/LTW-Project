@@ -58,7 +58,7 @@ loginForm.addEventListener("submit", function (e) {
   // kiểm tra đăng nhập
   if (user.name === name && user.phone === phone && user.pass === pass) {
     // chuyển trang nếu đúng
-    window.location.href = "TrangChu.html"; // gắn link trang chu vao dây
+    window.location.href = "/html/TrangChu.html"; // gắn link trang chu vao dây
   } else {
     loginError.innerText = "Tên hoặc mật khẩu không đúng";
   }
