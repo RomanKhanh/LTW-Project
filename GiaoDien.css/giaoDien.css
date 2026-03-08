@@ -1,0 +1,67 @@
+body {
+  font-family: Arial;
+  background: #eef2f3;
+  font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/*tổng khung của ô nội dung*/
+.box {
+  width: 360px;
+  margin-top: 300px;
+  background: white;
+  padding: 60px; /*độ lớn của khung*/
+  border-radius: 100px; /*độ cong của khung*/
+  text-align: flex-start; /*vị trí nội dung hiện lên khi sai*/
+}
+
+/*tiêu đề tên phim*/
+.rap-title {
+  text-align: center;
+  margin-top: 90px; /* đủ xích xuống nhẹ */
+  margin-bottom: -220px; /* kéo box lên gần lại */
+  font-size: 40px;
+  font-weight: bold;
+}
+
+/*ô điền thông tin*/
+input {
+  width: 95%;
+  padding: 10px; /*kích thước khung điền thông tin*/
+  margin: 10px 0;
+}
+
+/* chỉnh màu ô đăng nhập*/
+button {
+  width: 101%;
+  padding: 10px; /* chiều rong ô dang ki*/
+  background: black;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+/*chỉnh kích thước chữ trong ô điền nội dung*/
+input::placeholder {
+  font-size: 16px;
+}
+
+/* chỉnh màu ô đăng nhập khi đưa chuột lại ô*/
+button:hover {
+  background: #050260cb;
+}
+
+/* màu khi nhập sai*/
+.error {
+  color: rgba(255, 0, 0, 0.597);
+  font-size: 14px;
+  display: block;
+  margin-bottom: 8px;
+}
+
+/*hiện ô đỏ khi điền sai*/
+input.error-border {
+  border: 2px solid red;
+}
