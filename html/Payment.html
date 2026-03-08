@@ -1,0 +1,99 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thanh Toán</title>
+    <link rel="stylesheet" href="/CSS/Payment.css">
+    <script src="/backend/Payment.js" defer></script>
+</head>
+<body>
+    <div class="wrap">
+        <header class="header">
+            <div class="brand">
+                <div class="logo">🎬</div>
+                <div>
+                    <h1>KGV</h1>
+                    <p class="subtitle">Thanh toán vé xem phim</p>
+                </div>
+            </div>
+        </header>
+
+        <main class="main">
+            <section class="card summary">
+
+                <h2>Thông tin giá vé</h2>
+
+                <div class="movie-infor">
+
+                    <div class="poster" aria-hidden="true">
+                        <img src="/img/download.jpg" alt="Poster phim Cù lao xác sống">
+                    </div>
+
+                    <div class="movie-details">
+                        <strong class="movie-name">Thor ơi</strong>
+                        <div class="time">Thứ Sáu, 12/04/2024</div>
+                        <div class="seat-position">Rạp 4/Ghế A5</div>
+                    </div>
+                    
+                </div>
+
+                <div class="price">
+                    <div class="row"><span>Giá vé</span><span>120.000đ</span></div>
+                    <div class="row"><span>Giảm giá</span><span>0đ</span></div>
+                    <div class="row total"><span>Tổng cộng</span><span>120.000đ</span></div>
+                </div>
+
+                <div class="note">Hóa đơn sẽ được chuyển qua email của bạn sau khi thanh toán</div>
+            
+            </section>
+
+            <section class="card details">
+
+                <h2>Thông tin chi tiết thanh toán</h2>
+
+                <form action="#" method="post" class="payment-form">
+
+                    <label class="field">
+                        <span class="label-text">Ngân hàng thanh toán</span>
+                        <select name="bank" id="bank-select" class="bank-select" required>
+                            <option value="" disabled selected>Chọn ngân hàng</option>
+                            <option value="vietcombank">Vietcombank</option>
+                            <option value="techcombank">Techcombank</option>
+                            <option value="agribank">Agribank</option>
+                            <option value="mbbank">MBBank</option>
+                        </select>
+                    </label>
+
+                    <label class="field">
+                        <span class="label-text">Số thẻ thanh toán</span>
+                        <input type="text" id="card-number" name="card-number" pattern="[0-9\s]{13,19}" placeholder="1234 5678 9012 3456" required>
+                    </label>
+
+                    <label class="field">
+                        <span class="label-text">Email</span>
+                        <input type="email" id="email" name="email" placeholder="example@email.com" required >
+                    </label>
+
+                    <label class="field">
+                        <span class="label-text">Mã giảm giá</span>
+                        <input type="text" id="discount-code" name="discount-code" placeholder="Nhập mã giảm giá">
+                    </label>
+
+                    <label class="checkbox"></label>
+                        <input type="checkbox" name="terms" required>
+                        <span class="checkbox-text">Tôi đồng ý với các điều khoản và điều kiện</span>
+                    </label>
+                    
+                    <div class="actions">
+                        <button type="submit" class="btn primary">Thanh toán</button>
+                        <button type="reset" class="btn secondary">Hủy</button>
+                    </div>
+                </form>
+            </section>
+        </main>
+
+        <footer class="footer">© Cinema — Contact support@cinema.example</footer>
+
+    </div>
+</body>
+</html>
