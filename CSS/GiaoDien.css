@@ -1,6 +1,7 @@
 body {
   font-family: Arial;
-  background: #eef2f3;
+  /*background: #eef2f3;*/
+  background: linear-gradient(135deg, #e3e7ea, #cfd6db);
   font-size: 18px;
   display: flex;
   flex-direction: column;
@@ -14,6 +15,7 @@ body {
   background: white;
   padding: 90px;
   border-radius: 60px;
+  box-shadow: 0 10px 30px rgba(4, 0, 0, 0.4);
 }
 
 .box h1 {
@@ -21,6 +23,7 @@ body {
   margin-top: -20px;
   font-size: 40px;
 }
+
 /*tiêu đề tên phim*/
 .rap-title {
   text-align: center;
@@ -28,6 +31,8 @@ body {
   margin-bottom: -250px;
   font-size: 50px;
   font-weight: bold;
+
+  letter-spacing: 3px;
 }
 
 /*ô điền thông tin*/
@@ -36,24 +41,38 @@ input {
   padding: 20px;
   margin: 10px 0;
   box-sizing: border-box;
+
+  border-radius: 10px;
+  border: 1px solid #ccc;
 }
 
 /*hiệu ứng hiện xanh khi bấm vào ô cần điền*/
 input:focus {
   outline: none;
-  border: 2px solid #050260cb;
+  border: 2px solid black;
 }
 
 /* chỉnh màu ô đăng nhập*/
 button {
-  width: 105%;
+  width: 110%;
   padding: 20px;
   background: black;
   color: white;
   border: none;
   cursor: pointer;
   font-size: 20px;
-  margin-top: 20px;
+  box-sizing: border-box;
+
+  border-radius: 10px;
+  transition: 0.2s;
+}
+
+button:hover {
+  background: #333;
+}
+
+button:active {
+  transform: scale(0.97);
 }
 
 /*chỉnh kích thước chữ trong ô điền nội dung*/
