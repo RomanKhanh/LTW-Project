@@ -55,6 +55,6 @@ registerForm.addEventListener("submit", function (e) {
   );
 
   // chuyển sang trang giới thiệu hoặc trang chủ
-  window.location.href = "TrangChu.html"; // gắn linh trang chủ vào đây
+  window.location.href = "/html/TrangChu.html"; // gắn linh trang chủ vào đây
 });
 
