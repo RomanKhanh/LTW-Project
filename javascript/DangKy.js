@@ -24,16 +24,19 @@ registerForm.addEventListener("submit", function (e) {
 
   let isValid = true;
 
+  // kiểm tra tên
   if (name === "") {
     errRegName.innerText = "Tên không được để trống";
     isValid = false;
   }
 
+    // kiểm tra sđt
   if (!/^[0-9]{10}$/.test(phone)) {
     errRegPhone.innerText = "chưa điền đúng số điện thoại";
     isValid = false;
   }
 
+    // kiểm tra mật khẩu
   if (pass.length < 6) {
     errRegPass.innerText = "Mật khẩu ít nhất 6 ký tự";
     isValid = false;
@@ -54,3 +57,4 @@ registerForm.addEventListener("submit", function (e) {
   // chuyển sang trang giới thiệu hoặc trang chủ
   window.location.href = "TrangChu.html"; // gắn linh trang chủ vào đây
 });
+
