@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Chọn ghế</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../css/seats.css">
+</head>
+<body>
+
+<div class="container">
+
+<div class="back" onclick="goBack()">← Quay lại chọn suất chiếu</div>
+
+<div class="confirm-info">
+  <p id="infoMovie"></p>
+  <p id="infoLocation"></p>
+  <p id="infoShowtime"></p>
+</div>
+
+<div class="screen">MÀN HÌNH</div>
+
+<div class="seats" id="seatContainer"></div>
+
+<div class="summary">
+  <p>Ghế đã chọn: <span id="selectedSeats">Chưa chọn</span></p>
+  <p class="price">Tổng tiền: <span id="totalPrice">0</span> VNĐ</p>
+</div>
+
+<div class="legend">
+  <div class="legend-item">
+    <div class="legend-box" style="background:#ddd"></div> Ghế trống
+  </div>
+  <div class="legend-item">
+    <div class="legend-box" style="background:#444"></div> Ghế đã có người đặt
+  </div>
+  <div class="legend-item">
+    <div class="legend-box" style="background:#4caf50"></div> Ghế bạn chọn
+  </div>
+</div>
+
+<button class="btn" id="nextBtn" disabled>Tiếp tục thanh toán</button>
+
+</div>
+
+<div class="modal" id="confirmModal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <h3>Xác nhận thông tin vé</h3>
+    <p id="fcMovie"></p>
+    <p id="fcLocation"></p>
+    <p id="fcShowtime"></p>
+    <p id="fcSeats"></p>
+    <p id="fcTotal"></p>
+    <button class="btn" onclick="confirmBooking()">Xác nhận thanh toán</button>
+  </div>
+</div>
+
+<script src="../javascript/seats.js"></script>
+</body>
+</html>
