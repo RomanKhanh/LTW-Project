@@ -6,16 +6,26 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  margin: 0;
+  height: 100vh;
+
+  background: linear-gradient(
+    to bottom,
+    #fed7645e 30%,
+    /* vàng nhạt */ #6e9dd2ca 60%,
+    /* xanh dương */ #062042 100% /* xanh đậm */
+  );
 }
 
 /*tổng khung của ô nội dung*/
 .box {
   width: 360px;
   margin-top: 300px;
-  background: white;
+  background: rgba(255, 255, 255, 0.496);
   padding: 90px;
   border-radius: 60px;
-  box-shadow: 0 10px 30px rgba(4, 0, 0, 0.4);
+  box-shadow: 0 10px 30px rgba(4, 0, 0, 0.4); /*chỉnh vân nổi cho khung*/
 }
 
 .box h1 {
@@ -44,6 +54,7 @@ input {
 
   border-radius: 10px;
   border: 1px solid #ccc;
+  background: rgba(255, 255, 255, 0.496);
 }
 
 /*hiệu ứng hiện xanh khi bấm vào ô cần điền*/
@@ -82,13 +93,13 @@ input::placeholder {
 
 /* chỉnh màu ô đăng nhập khi đưa chuột lại ô*/
 button:hover {
-  background: #050260cb;
+  background: #082b59;
 }
 
 /* màu khi nhập sai*/
 .error {
   color: rgba(255, 0, 0, 0.597);
-  font-size: 14px;
+  font-size: 16px;
   display: block;
   margin-bottom: 10px;
 }
