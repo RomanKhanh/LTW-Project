@@ -1,0 +1,89 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xác nhận thanh toán</title>
+    <link rel="stylesheet" href="/CSS/confirmation.css">
+    <script src="/backend/confirmation.js" defer></script>
+</head>
+<body>
+    <div class="wrap">
+        <header class="header">
+            <div class="brand">
+                <div class="logo">🎬</div>
+                <div>
+                    <h1>KGV</h1>
+                    <p class="subtitle">Thanh toán vé xem phim</p>
+                </div>
+            </div>
+        </header>
+
+        <main class="main">
+            <section class="card summary">
+
+                <h2>Thông tin giá vé</h2>
+
+                <div class="movie-infor">
+
+                    <div class="poster" aria-hidden="true">
+                        <img src="/img/download.jpg">
+                    </div>
+
+                    <div class="movie-details">
+                        <strong class="movie-name">Thor ơi</strong>
+                        <div class="time">Thứ Sáu, 12/04/2024</div>
+                        <div class="seat-position">Rạp 4/Ghế A5</div>
+                    </div>
+                    
+                </div>
+
+                <div class="price">
+                    <div class="row"><span>Giá vé</span><span>120.000đ</span></div>
+                    <div class="row"><span>Giảm giá</span><span>0đ</span></div>
+                    <div class="row total"><span>Tổng cộng</span><span>120.000đ</span></div>
+                </div>
+
+                <div class="note">Hóa đơn sẽ được chuyển qua email của bạn sau khi thanh toán</div>
+            
+            </section>
+
+            <section class="card details">
+    
+                <h2>Vui lòng xác nhận lại thanh toán</h2>
+    
+                <div class="confirmation-content">
+
+                    <div class="confirm-row">
+                        <span class="label-text">Ngân hàng</span>
+                        <span class="value" id="confirmBank"></span>
+                    </div>
+
+                    <div class="confirm-row">
+                        <span class="label-text">Số thẻ thanh toán</span>
+                        <span class="value" id="confirmCardNum"></span>
+                    </div>
+                    
+                    <div class="confirm-row">
+                        <span class="label-text">Email</span>
+                        <span class="value" id="confirmEmail"></span>
+                    </div>
+
+                </div>
+
+                <div class="alert reminder">
+                    <strong>Vui lòng kiểm tra kĩ lại thông tin trước khi xác nhận thanh toán</strong>
+                    <p>Một khi đã nhấn thanh toán sẽ không thể hủy bỏ</p>
+                </div>
+
+                <div class="actions">
+                        <button type="submit" class="btn primary" id="btnsub">Xác nhận</button>
+                        <button type="reset" class="btn secondary" id="btnback">Quay lại</button>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">© Cinema — Contact support@cinema.example</footer>
+
+    </div>
+</body>
+</html>

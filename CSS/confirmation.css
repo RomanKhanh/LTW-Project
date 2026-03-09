@@ -1,0 +1,60 @@
+:root{
+	--bg:#f5f7fb;
+	--card:#ffffff;
+	--muted:#000307;
+	--accent:#1f7ae0;
+	--danger:#e06b6b;
+	--radius:12px;
+	--shadow: 0 6px 18px rgba(34,50,80,0.08);
+	--max-width:1100px;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+body{font-family:Inter,Segoe UI,Arial,Helvetica,sans-serif;color:#0b1220;margin:0;line-height:1.35;
+    background-image: url("/img/7079ea7f21cc7864526dbacb679ca951.jpg");
+    background-size: cover;
+}
+
+.wrap{max-width:var(--max-width);margin:36px auto;padding:20px}
+
+.header{display:flex; padding:12px 6px; align-items: center}
+.brand{display:flex;gap:12px;align-items:center}
+.logo{font-size: 30px;}
+.subtitle{color:var(--muted);margin-top:4px}
+
+.main{display: grid; grid-template-columns: 380px 1fr; gap: 20px}
+.card{background-color: var(--card); border-radius: var(--radius); box-shadow: var(--shadow); padding: 20px}
+.summary h2, .details h2{margin: 0 0 25px 0}
+.movie-infor{display: flex; align-items: center; gap:12px}
+.movie-details strong{font-size: 24px;}
+.movie-details .time, .movie-details .seat-position{color:var(--muted);font-size:14px;margin-top:4px}
+.poster img{width:78px;height:110px;border-radius:6px}
+.price{margin-top: 20px; font-size: 18px; font-weight: bold; border-top: 1px solid; padding-top: 20px}
+.row{display:flex; justify-content: space-between; margin-bottom: 20px}
+.total{border-top: 1px solid; padding-top: 20px}
+.note{color:var(--muted);font-size:14px;margin-top:12px}
+
+.confirmation-content{display: flex; flex-direction: column; padding: 12px; gap: 10px}
+.confirm-row{display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #000307;}
+.confirm-row:last-child{border-bottom: none;}
+.label-text{font-weight: 600;font-size:16px;}
+.value{font-weight:600;color:#0b1220}
+
+.alert{border-radius: 8px; padding: 10px; margin: 20px 0}
+.reminder{background-color: #eff6ff; border-left: 4px solid var(--accent); color: #003d7a}
+
+.actions{display:flex; gap:12px; justify-content: flex-end;}
+.btn {border-radius: var(--radius); padding: 15px 25px; border: 0}
+.btn.primary {background-color: var(--accent); color:#ffffff; font-weight: 600;}
+.btn.secondary {background-color: transparent; color: gray; font-weight: 600}
+
+.footer{margin-top: 40px; text-align: center; color: var(--muted); font-size: 14px}
+
+
+
+
+
+
