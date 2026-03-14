@@ -1,89 +1,161 @@
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Xác nhận thanh toán</title>
-    <link rel="stylesheet" href="/CSS/confirmation.css">
-    <script src="/backend/confirmation.js" defer></script>
-</head>
-<body>
+    <link rel="stylesheet" href="/CSS/confirmation.css" />
+    <link rel="stylesheet" href="/CSS/header.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <script src="/javascript/confirmation.js" defer></script>
+  </head>
+  <body>
     <div class="wrap">
-        <header class="header">
-            <div class="brand">
-                <div class="logo">🎬</div>
-                <div>
-                    <h1>KGV</h1>
-                    <p class="subtitle">Thanh toán vé xem phim</p>
-                </div>
+      <header class="header">
+        <div class="logo">
+          <img src="/img/ChatGPT Image Mar 9, 2026, 10_08_36 PM.png" />
+        </div>
+        <nav class="navbar">
+          <ul>
+            <li><a href="#">Trang chủ</a></li>
+            <li><a href="#">Giới thiệu</a></li>
+            <li><a href="#">Đăng nhập</a></li>
+            <li><a href="#">Đăng kí</a></li>
+            <li class="active"><a href="#">Thanh toán</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <main class="main">
+        <section class="card summary">
+          <h2>Thông tin giá vé</h2>
+
+          <div class="movie-infor">
+            <div class="poster" aria-hidden="true">
+              <img id="moviePoster" src="" alt="Poster phim" />
             </div>
-        </header>
 
-        <main class="main">
-            <section class="card summary">
+            <div class="movie-details">
+              <strong class="movie-name" id="movieName"></strong>
+              <div class="time" id="movieTime"></div>
+              <div class="seat-position" id="movieSeats"></div>
+            </div>
+          </div>
 
-                <h2>Thông tin giá vé</h2>
+          <div class="price">
+            <div class="row">
+              <span>Giá vé</span><span id="ticketPrice"></span>
+            </div>
+            <div class="row">
+              <span>Giảm giá</span><span id="discount">0đ</span>
+            </div>
+            <div class="row total">
+              <span>Tổng cộng</span><span id="totalPrice"></span>
+            </div>
+          </div>
 
-                <div class="movie-infor">
+          <div class="note">
+            Hóa đơn sẽ được chuyển qua email của bạn sau khi thanh toán
+          </div>
+        </section>
 
-                    <div class="poster" aria-hidden="true">
-                        <img src="/img/download.jpg">
-                    </div>
+        <section class="card details">
+          <h2>Vui lòng xác nhận lại thanh toán</h2>
 
-                    <div class="movie-details">
-                        <strong class="movie-name">Thor ơi</strong>
-                        <div class="time">Thứ Sáu, 12/04/2024</div>
-                        <div class="seat-position">Rạp 4/Ghế A5</div>
-                    </div>
-                    
-                </div>
+          <div class="confirmation-content">
+            <div class="confirm-row">
+              <span class="label-text">Ngân hàng</span>
+              <span class="value" id="confirmBank"></span>
+            </div>
 
-                <div class="price">
-                    <div class="row"><span>Giá vé</span><span>120.000đ</span></div>
-                    <div class="row"><span>Giảm giá</span><span>0đ</span></div>
-                    <div class="row total"><span>Tổng cộng</span><span>120.000đ</span></div>
-                </div>
+            <div class="confirm-row">
+              <span class="label-text">Số thẻ thanh toán</span>
+              <span class="value" id="confirmCardNum"></span>
+            </div>
 
-                <div class="note">Hóa đơn sẽ được chuyển qua email của bạn sau khi thanh toán</div>
-            
-            </section>
+            <div class="confirm-row">
+              <span class="label-text">Email</span>
+              <span class="value" id="confirmEmail"></span>
+            </div>
+          </div>
 
-            <section class="card details">
-    
-                <h2>Vui lòng xác nhận lại thanh toán</h2>
-    
-                <div class="confirmation-content">
+          <div class="alert reminder">
+            <strong
+              >Vui lòng kiểm tra kĩ lại thông tin trước khi xác nhận thanh
+              toán</strong
+            >
+            <p>Một khi đã nhấn thanh toán sẽ không thể hủy bỏ</p>
+          </div>
 
-                    <div class="confirm-row">
-                        <span class="label-text">Ngân hàng</span>
-                        <span class="value" id="confirmBank"></span>
-                    </div>
+          <div class="actions">
+            <button type="submit" class="btn primary" id="btnsub">
+              Xác nhận
+            </button>
+            <button type="reset" class="btn secondary" id="btnback">
+              Quay lại
+            </button>
+          </div>
+        </section>
+      </main>
 
-                    <div class="confirm-row">
-                        <span class="label-text">Số thẻ thanh toán</span>
-                        <span class="value" id="confirmCardNum"></span>
-                    </div>
-                    
-                    <div class="confirm-row">
-                        <span class="label-text">Email</span>
-                        <span class="value" id="confirmEmail"></span>
-                    </div>
+      <footer class="footer">
+        <div class="footer-container">
+          <div class="footer-col">
+            <h2 class="logo">CiCinema</h2>
+            <p>
+              Hệ thống rạp chiếu phim hiện đại với công nghệ hình ảnh và âm
+              thanh tiên tiến, mang đến trải nghiệm điện ảnh tuyệt vời.
+            </p>
+          </div>
 
-                </div>
+          <div class="footer-col">
+            <h3>Thông tin</h3>
+            <p>Địa chỉ: 123 Đường 30/4, Ninh Kiều, Cần Thơ</p>
+            <p>Điện thoại: 0292 123 4567</p>
+            <p>Email: support@CiCinema.vn</p>
+          </div>
 
-                <div class="alert reminder">
-                    <strong>Vui lòng kiểm tra kĩ lại thông tin trước khi xác nhận thanh toán</strong>
-                    <p>Một khi đã nhấn thanh toán sẽ không thể hủy bỏ</p>
-                </div>
+          <div class="footer-col">
+            <h3>Kết nối</h3>
 
-                <div class="actions">
-                        <button type="submit" class="btn primary" id="btnsub">Xác nhận</button>
-                        <button type="reset" class="btn secondary" id="btnback">Quay lại</button>
-                </div>
-            </section>
-        </main>
+            <div class="menu">
+              <div class="toggle">
+                <icon-icon name="share-social"></icon-icon>
+              </div>
+              <li style="--i: 0; --clr: #1877f2">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+              </li>
+              <li style="--i: 1; --clr: #25d366">
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+              </li>
+              <li style="--i: 2; --clr: #1b1e21">
+                <a href="#"><i class="fab fa-x-twitter"></i></a>
+              </li>
+              <li style="--i: 3; --clr: #ff5733">
+                <a href="#"><i class="fab fa-reddit-alien"></i></a>
+              </li>
+              <li style="--i: 4; --clr: #0a66c2">
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+              </li>
+              <li style="--i: 5; --clr: #c32aa3">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+              </li>
+              <li style="--i: 6; --clr: #1b1e21">
+                <a href="#"><i class="fab fa-github"></i></a>
+              </li>
+              <li style="--i: 7; --clr: #ff0000">
+                <a href="#"><i class="fab fa-youtube"></i></a>
+              </li>
+            </div>
+            <script src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+            <script src="/javascript/footer.js"></script>
+          </div>
+        </div>
 
-        <footer class="footer">© Cinema — Contact support@cinema.example</footer>
-
+        <div class="footer-bottom">© 2026 CiCinema. All Rights Reserved.</div>
+      </footer>
     </div>
-</body>
+  </body>
 </html>

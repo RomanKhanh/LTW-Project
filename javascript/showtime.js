@@ -1,61 +1,61 @@
 const movie = JSON.parse(localStorage.getItem("selectedMovie"));
 
-if(!movie){
-  window.location.href="trangchu.html";
+if (!movie) {
+  window.location.href = "trangchu.html";
 }
 
 const movieDB = {
-  "Chiến Binh Cuối Cùng":{
-    genre:"Hành động",
-    duration:"120 phút",
-    age:"C13 - Phù hợp từ 13 tuổi"
+  "Chiến Binh Cuối Cùng": {
+    genre: "Hành động",
+    duration: "120 phút",
+    age: "C13 - Phù hợp từ 13 tuổi",
   },
-  "Thế Giới Phép Thuật":{
-    genre:"Phiêu lưu",
-    duration:"105 phút",
-    age:"P - Mọi lứa tuổi"
+  "Thế Giới Phép Thuật": {
+    genre: "Phiêu lưu",
+    duration: "105 phút",
+    age: "P - Mọi lứa tuổi",
   },
-  "Tiếng Gọi Đêm Khuya":{
-    genre:"Kinh dị",
-    duration:"110 phút",
-    age:"C18 - Từ 18 tuổi"
+  "Tiếng Gọi Đêm Khuya": {
+    genre: "Kinh dị",
+    duration: "110 phút",
+    age: "C18 - Từ 18 tuổi",
   },
-  "Siêu Quậy Học Đường":{
-    genre:"Hài, học đường",
-    duration:"95 phút",
-    age:"C13 - Từ 13 tuổi"
+  "Siêu Quậy Học Đường": {
+    genre: "Hài, học đường",
+    duration: "95 phút",
+    age: "C13 - Từ 13 tuổi",
   },
-  "Hành Tinh Song Song":{
-    genre:"Viễn tưởng",
-    duration:"130 phút",
-    age:"C13 - Từ 13 tuổi"
+  "Hành Tinh Song Song": {
+    genre: "Viễn tưởng",
+    duration: "130 phút",
+    age: "C13 - Từ 13 tuổi",
   },
-  "Hẹn Ước Mùa Thu":{
-    genre:"Tình cảm",
-    duration:"100 phút",
-    age:"P - Mọi lứa tuổi"
-  }
+  "Hẹn Ước Mùa Thu": {
+    genre: "Tình cảm",
+    duration: "100 phút",
+    age: "P - Mọi lứa tuổi",
+  },
 };
 
 const info = movieDB[movie.name];
 
-document.getElementById("movieName").textContent="Tên phim: "+movie.name;
-document.getElementById("movieGenre").textContent="Thể loại: "+info.genre;
-document.getElementById("movieDuration").textContent="Thời lượng: "+info.duration;
-document.getElementById("movieAge").textContent=info.age;
-document.getElementById("moviePoster").src=movie.poster;
-
+document.getElementById("movieName").textContent = "Tên phim: " + movie.name;
+document.getElementById("movieGenre").textContent = "Thể loại: " + info.genre;
+document.getElementById("movieDuration").textContent =
+  "Thời lượng: " + info.duration;
+document.getElementById("movieAge").textContent = info.age;
+document.getElementById("moviePoster").src = movie.poster;
 
 const cinemasByArea = {
   "Cần Thơ": ["CGV Vincom Xuân Khánh", "Lotte Cinema Ninh Kiều"],
   "TP. Hồ Chí Minh": ["CGV Landmark 81", "CGV Aeon Mall"],
-  "Hà Nội": ["CGV Royal City", "CGV Vincom Bà Triệu"]
+  "Hà Nội": ["CGV Royal City", "CGV Vincom Bà Triệu"],
 };
 
 const showtimes = {
-  "10/03/2026": ["10:00","13:30","16:45","19:30"],
-  "11/03/2026": ["09:45","12:15","15:30","18:45"],
-  "12/03/2026": ["11:00","14:30","17:45","20:15"]
+  "10/03/2026": ["10:00", "13:30", "16:45", "19:30"],
+  "11/03/2026": ["09:45", "12:15", "15:30", "18:45"],
+  "12/03/2026": ["11:00", "14:30", "17:45", "20:15"],
 };
 
 let selectedArea = "Cần Thơ";
@@ -67,137 +67,110 @@ const cinemaList = document.getElementById("cinemaList");
 const showtimeList = document.getElementById("showtimeList");
 const nextBtn = document.getElementById("nextBtn");
 
-function updateConfirm(){
-
-  document.getElementById("cfArea").textContent="Khu vực: "+selectedArea;
-  document.getElementById("cfCinema").textContent="Rạp: "+selectedCinema;
-  document.getElementById("cfDate").textContent="Ngày: "+selectedDate;
-  document.getElementById("cfTime").textContent="Giờ: "+selectedTime;
+function updateConfirm() {
+  document.getElementById("cfArea").textContent = "Khu vực: " + selectedArea;
+  document.getElementById("cfCinema").textContent = "Rạp: " + selectedCinema;
+  document.getElementById("cfDate").textContent = "Ngày: " + selectedDate;
+  document.getElementById("cfTime").textContent = "Giờ: " + selectedTime;
 
   nextBtn.disabled = !(selectedCinema && selectedTime);
-
 }
 
-function renderCinemas(area){
+function renderCinemas(area) {
+  cinemaList.innerHTML = "";
 
-  cinemaList.innerHTML="";
+  cinemasByArea[area].forEach((cinema, i) => {
+    const label = document.createElement("label");
 
-  cinemasByArea[area].forEach((cinema,i)=>{
-
-    const label=document.createElement("label");
-
-    label.innerHTML=`
-      <input type="radio" name="cinema" value="${cinema}" ${i===0?"checked":""}>
+    label.innerHTML = `
+      <input type="radio" name="cinema" value="${cinema}" ${i === 0 ? "checked" : ""}>
       ${cinema}
     `;
 
     cinemaList.appendChild(label);
     cinemaList.appendChild(document.createElement("br"));
-
   });
 
   selectedCinema = cinemasByArea[area][0];
 
   updateConfirm();
-
 }
 
-function renderShowtimes(date){
+function renderShowtimes(date) {
+  showtimeList.innerHTML = "";
 
-  showtimeList.innerHTML="";
+  showtimes[date].forEach((time) => {
+    const div = document.createElement("div");
 
-  showtimes[date].forEach(time=>{
+    div.className = "showtime";
 
-    const div=document.createElement("div");
+    div.textContent = time;
 
-    div.className="showtime";
-
-    div.textContent=time;
-
-    div.onclick=()=>{
-
-      document.querySelectorAll(".showtime").forEach(s=>{
+    div.onclick = () => {
+      document.querySelectorAll(".showtime").forEach((s) => {
         s.classList.remove("selected");
       });
 
       div.classList.add("selected");
 
-      selectedTime=time;
+      selectedTime = time;
 
       updateConfirm();
-
     };
 
     showtimeList.appendChild(div);
-
   });
-
 }
 
 renderCinemas(selectedArea);
 renderShowtimes(selectedDate);
 updateConfirm();
 
-document.querySelectorAll("input[name='area']").forEach(r=>{
-
-  r.onchange=()=>{
-
-    selectedArea=r.value;
+document.querySelectorAll("input[name='area']").forEach((r) => {
+  r.onchange = () => {
+    selectedArea = r.value;
 
     renderCinemas(selectedArea);
-
   };
-
 });
 
-document.addEventListener("change",e=>{
-
-  if(e.target.name==="cinema"){
-
-    selectedCinema=e.target.value;
+document.addEventListener("change", (e) => {
+  if (e.target.name === "cinema") {
+    selectedCinema = e.target.value;
 
     updateConfirm();
-
   }
-
 });
 
-document.querySelectorAll(".date").forEach(btn=>{
-
-  btn.onclick=()=>{
-
-    document.querySelectorAll(".date").forEach(d=>{
+document.querySelectorAll(".date").forEach((btn) => {
+  btn.onclick = () => {
+    document.querySelectorAll(".date").forEach((d) => {
       d.classList.remove("active");
     });
 
     btn.classList.add("active");
 
-    selectedDate=btn.dataset.date;
+    selectedDate = btn.dataset.date;
 
-    selectedTime="";
+    selectedTime = "";
 
     renderShowtimes(selectedDate);
 
     updateConfirm();
-
   };
-
 });
 
-nextBtn.onclick=()=>{
-
-  const booking={
-
-    movie:movie.name,
-    area:selectedArea,
-    cinema:selectedCinema,
-    date:selectedDate,
-    time:selectedTime
-
+nextBtn.onclick = () => {
+  const booking = {
+    movie: movie.name,
+    area: selectedArea,
+    cinema: selectedCinema,
+    date: selectedDate,
+    time: selectedTime,
+    poster: movie.poster,
   };
 
-  localStorage.setItem("booking",JSON.stringify(booking));
+  localStorage.setItem("booking", JSON.stringify(booking));
 
   window.location.href = "seats.html";
-
 };

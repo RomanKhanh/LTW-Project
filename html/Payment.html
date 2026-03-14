@@ -9,7 +9,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
-    <script src="/backend/Payment.js" defer></script>
+    <script src="/javascript/Payment.js" defer></script>
 </head>
 <body>
     <div class="wrap">
@@ -36,21 +36,21 @@
                 <div class="movie-infor">
 
                     <div class="poster" aria-hidden="true">
-                        <img src="/img/download.jpg" alt="Poster phim Cù lao xác sống">
-                    </div>
+                        <img id="moviePoster" src="" alt="Poster phim">
+                    </div>  
 
                     <div class="movie-details">
-                        <strong class="movie-name">Thor ơi</strong>
-                        <div class="time">Thứ Sáu, 12/04/2024</div>
-                        <div class="seat-position">Rạp 4/Ghế A5</div>
+                        <strong class="movie-name" id="movieName"></strong>
+                        <div class="time" id="movieTime"></div>
+                        <div class="seat-position" id="movieSeats"></div>
                     </div>
                     
                 </div>
 
                 <div class="price">
-                    <div class="row"><span>Giá vé</span><span>120.000đ</span></div>
-                    <div class="row"><span>Giảm giá</span><span>0đ</span></div>
-                    <div class="row total"><span>Tổng cộng</span><span>120.000đ</span></div>
+                    <div class="row"><span>Giá vé</span><span id="ticketPrice"></span></div>
+                    <div class="row"><span>Giảm giá</span><span id="discount">0đ</span></div>
+                    <div class="row total"><span>Tổng cộng</span><span id="totalPrice"></span></div>
                 </div>
 
                 <div class="note">Hóa đơn sẽ được chuyển qua email của bạn sau khi thanh toán</div>
@@ -76,7 +76,7 @@
 
                     <label class="field">
                         <span class="label-text">Số thẻ thanh toán</span>
-                        <input type="text" id="card-number" name="card-number" pattern="[0-9\s]{13,19}" placeholder="1234 5678 9012 3456" required>
+                        <input type="text" id="card-number" name="card-number" pattern="[0-9\s]{8,19}" placeholder="1234 5678 9012 3456" required>
                     </label>
 
                     <label class="field">
