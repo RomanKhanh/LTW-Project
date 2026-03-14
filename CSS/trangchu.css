@@ -1,80 +1,225 @@
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f0f8ff;
-    color: #333333;
-    margin: 0;
-    padding: 20px;
+/* ===== HEADER ===== */
+
+.header{
+    background:#f5f5f5;
+    text-align:center;
+    border-bottom:3px solid #c5a46d;
 }
 
-h1 {
-    text-align: center;
-    color: #e74c3c;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 40px;
+.logo img{
+    width:120px;
+    margin:15px 0;
 }
 
-.movie-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    max-width: 1200px;
-    margin: 0 auto;
+.navbar{
+    background:#fff;
+    border-top:1px solid #ddd;
 }
 
-.movie-card {
-    background-color: #ffffff;
-    border-radius: 15px;
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 1px solid #d1e3f3;
-    text-align: center;
-    padding-bottom: 20px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+.navbar ul{
+    list-style:none;
+    padding:15px;
+    margin:0;
+    display:flex;
+    justify-content:center;
+    gap:40px;
 }
 
-.movie-card:hover {
-    transform: translateY(-10px);
-    border-color: #e74c3c;
-    box-shadow: 0 10px 25px rgba(231, 76, 60, 0.2);
+.navbar ul li a{
+    text-decoration:none;
+    font-size:20px;
+    color:#222;
+    font-weight:500;
 }
 
-.movie-card img {
-    width: 100%;
-    height: 400px;
-    object-fit: cover;
+.navbar ul li a:hover{
+    color:#c5a46d;
 }
 
-.movie-info h3 {
-    margin: 15px 0 10px;
-    font-size: 1.4em;
-    color: #2c3e50;
+
+/* ===== RESET ===== */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial;
 }
 
-.price {
-    color: #2980b9;
-    font-size: 1.2em;
-    font-weight: bold;
-    margin-bottom: 15px;
+body{
+background:#f4f4f4;
 }
 
-.btn-booking {
-    background-color: #e74c3c;
-    color: white;
-    border: none;
-    padding: 12px 25px;
-    border-radius: 25px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background 0.3s;
+/* ===== MAIN ===== */
+
+main{
+max-width:1200px;
+margin:auto;
+padding:40px 20px;
 }
 
-.btn-booking:hover {
-    background-color: #c0392b;
+/* ===== TIÊU ĐỀ ===== */
+
+h2{
+text-align:center;
+margin-bottom:40px;
+font-size:38px;
+letter-spacing:2px;
+color:#333;
+font-weight:bold;
 }
 
-@media (max-width: 768px) {
-    .movie-grid {
-        grid-template-columns: 1fr;
-    }
+
+/* ===== MOVIE GRID ===== */
+
+.movie-grid{
+
+display:grid;
+
+grid-template-columns:repeat(3,1fr);
+
+gap:30px;
+
+}
+
+
+/* ===== MOVIE CARD ===== */
+
+.movie-card{
+
+background:white;
+
+border-radius:10px;
+
+overflow:hidden;
+
+box-shadow:0 4px 10px rgba(0,0,0,0.1);
+
+transition:0.3s;
+
+}
+
+.movie-card:hover{
+
+transform:translateY(-5px);
+
+box-shadow:0 10px 20px rgba(0,0,0,0.2);
+
+}
+
+.movie-card img{
+
+width:100%;
+
+height:380px;
+
+object-fit:cover;
+
+}
+
+
+/* ===== MOVIE INFO ===== */
+
+.movie-info{
+
+padding:15px;
+
+text-align:center;
+
+}
+
+.movie-info h3{
+
+margin-bottom:5px;
+text-align:center;
+font-size:18px;
+
+}
+
+/* ===== PRICE ===== */
+
+.price{
+
+color:red;
+
+font-weight:bold;
+
+margin-bottom:12px;
+text-align:center;
+font-size:18px;
+
+}
+
+
+/* ===== BOOKING BUTTON ===== */
+
+.btn-booking{
+padding:10px 20px;
+background:red;
+color:white;
+border:none;
+border-radius:5px;
+cursor:pointer;
+display:block;
+margin:auto;
+}
+
+.btn-booking:hover{
+
+background:#b20710;
+
+}
+
+
+/* ===== FOOTER ===== */
+
+.footer{
+    background:#0b0b0b;
+    color:white;
+    margin-top:60px;
+}
+
+.footer-container{
+    display:flex;
+    justify-content:space-between;
+    padding:40px 10%;
+}
+
+.footer-col{
+    width:30%;
+}
+
+.footer-logo{
+    color:#ffd000;
+    margin-bottom:10px;
+}
+
+.footer-col h3{
+    margin-bottom:10px;
+}
+
+.footer-col p{
+    margin:5px 0;
+}
+
+.footer-col button{
+    display:block;
+    margin:8px 0;
+    padding:6px 12px;
+    background:none;
+    border:1px solid #666;
+    color:white;
+    cursor:pointer;
+}
+
+.footer-col button:hover{
+    background:#ffd000;
+    color:black;
+}
+
+.footer-bottom{
+    text-align:center;
+    padding:15px;
+    border-top:1px solid #333;
+    font-size:14px;
 }

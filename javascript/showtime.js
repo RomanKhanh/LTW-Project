@@ -1,3 +1,51 @@
+const movie = JSON.parse(localStorage.getItem("selectedMovie"));
+
+if(!movie){
+  window.location.href="trangchu.html";
+}
+
+const movieDB = {
+  "Chiến Binh Cuối Cùng":{
+    genre:"Hành động",
+    duration:"120 phút",
+    age:"C13 - Phù hợp từ 13 tuổi"
+  },
+  "Thế Giới Phép Thuật":{
+    genre:"Phiêu lưu",
+    duration:"105 phút",
+    age:"P - Mọi lứa tuổi"
+  },
+  "Tiếng Gọi Đêm Khuya":{
+    genre:"Kinh dị",
+    duration:"110 phút",
+    age:"C18 - Từ 18 tuổi"
+  },
+  "Siêu Quậy Học Đường":{
+    genre:"Hài, học đường",
+    duration:"95 phút",
+    age:"C13 - Từ 13 tuổi"
+  },
+  "Hành Tinh Song Song":{
+    genre:"Viễn tưởng",
+    duration:"130 phút",
+    age:"C13 - Từ 13 tuổi"
+  },
+  "Hẹn Ước Mùa Thu":{
+    genre:"Tình cảm",
+    duration:"100 phút",
+    age:"P - Mọi lứa tuổi"
+  }
+};
+
+const info = movieDB[movie.name];
+
+document.getElementById("movieName").textContent="Tên phim: "+movie.name;
+document.getElementById("movieGenre").textContent="Thể loại: "+info.genre;
+document.getElementById("movieDuration").textContent="Thời lượng: "+info.duration;
+document.getElementById("movieAge").textContent=info.age;
+document.getElementById("moviePoster").src=movie.poster;
+
+
 const cinemasByArea = {
   "Cần Thơ": ["CGV Vincom Xuân Khánh", "Lotte Cinema Ninh Kiều"],
   "TP. Hồ Chí Minh": ["CGV Landmark 81", "CGV Aeon Mall"],
@@ -20,20 +68,24 @@ const showtimeList = document.getElementById("showtimeList");
 const nextBtn = document.getElementById("nextBtn");
 
 function updateConfirm(){
+
   document.getElementById("cfArea").textContent="Khu vực: "+selectedArea;
   document.getElementById("cfCinema").textContent="Rạp: "+selectedCinema;
   document.getElementById("cfDate").textContent="Ngày: "+selectedDate;
   document.getElementById("cfTime").textContent="Giờ: "+selectedTime;
 
   nextBtn.disabled = !(selectedCinema && selectedTime);
+
 }
 
 function renderCinemas(area){
+
   cinemaList.innerHTML="";
 
   cinemasByArea[area].forEach((cinema,i)=>{
 
     const label=document.createElement("label");
+
     label.innerHTML=`
       <input type="radio" name="cinema" value="${cinema}" ${i===0?"checked":""}>
       ${cinema}
@@ -41,10 +93,13 @@ function renderCinemas(area){
 
     cinemaList.appendChild(label);
     cinemaList.appendChild(document.createElement("br"));
+
   });
 
   selectedCinema = cinemasByArea[area][0];
+
   updateConfirm();
+
 }
 
 function renderShowtimes(date){
@@ -54,7 +109,9 @@ function renderShowtimes(date){
   showtimes[date].forEach(time=>{
 
     const div=document.createElement("div");
+
     div.className="showtime";
+
     div.textContent=time;
 
     div.onclick=()=>{
@@ -68,6 +125,7 @@ function renderShowtimes(date){
       selectedTime=time;
 
       updateConfirm();
+
     };
 
     showtimeList.appendChild(div);
@@ -129,11 +187,13 @@ document.querySelectorAll(".date").forEach(btn=>{
 nextBtn.onclick=()=>{
 
   const booking={
-    movie:"Kung Fu Panda 4",
+
+    movie:movie.name,
     area:selectedArea,
     cinema:selectedCinema,
     date:selectedDate,
     time:selectedTime
+
   };
 
   localStorage.setItem("booking",JSON.stringify(booking));
