@@ -29,7 +29,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
   document.getElementById("ticketPrice").textContent =
     booking.totalPrice.toLocaleString("vi-VN") + "đ";
+  const discountCodes = ["thaylinhsomot", "cicinemavippro"];
+  const userCode = booking.discountCode;
 
+  let discountPrice = 0;
+  if (discountCodes.includes(userCode.toLowerCase())) {
+    discountPrice = (booking.totalPrice * 10) / 100;
+  }
+  booking.totalPrice = booking.totalPrice - discountPrice;
+  localStorage.setItem("finalBooking", JSON.stringify(booking));
+  document.getElementById("discount").textContent =
+    discountPrice.toLocaleString("vi-VN") + "đ";
   document.getElementById("totalPrice").textContent =
     booking.totalPrice.toLocaleString("vi-VN") + "đ";
 
