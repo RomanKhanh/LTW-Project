@@ -1,16 +1,11 @@
-* {
-  box-sizing: border-box;
-}
-
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: #f4f4f4;
-  padding: 20px;
+  background: #fff3cfc7;
 }
 
 main {
-  min-height: 600pxpx;
+  min-height: 600px;
 }
 
 .container {
@@ -34,17 +29,6 @@ main {
   padding: 15px;
   border-radius: 6px;
   margin-bottom: 20px;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #fff3cfc7;
-  padding: 20px;
 }
 
 .screen {
@@ -150,35 +134,6 @@ body {
   justify-content: center;
   align-items: center;
   z-index: 999;
-}
-
-.modal-content {
-  background: #fff;
-  padding: 25px;
-  width: 90%;
-  max-width: 450px;
-  border-radius: 8px;
-  position: relative;
-  animation: fadeIn 0.2s ease-in-out;
-}
-
-.close {
-  position: absolute;
-  right: 12px;
-  top: 8px;
-  font-size: 22px;
-  cursor: pointer;
-}
-
-@keyframes fadeIn {
-  from {
-    transform: scale(0.9);
-    opacity: 0;
-  }
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
 }
 
 .modal-content {
