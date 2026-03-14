@@ -1,71 +1,66 @@
 body {
   font-family: Arial;
-  /*background: #eef2f3;*/
-  background: linear-gradient(135deg, #e3e7ea, #cfd6db);
-  font-size: 18px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  background: #fff3cfc7 60%;
+  font-size: 20px;
+  padding-top: 10px;
 
   margin: 0;
-  height: 100vh;
-
-  background: linear-gradient(
-    to bottom,
-    #fed7645e 30%,
-    /* vàng nhạt */ #6e9dd2ca 60%,
-    /* xanh dương */ #062042 100% /* xanh đậm */
-  );
+  min-height: 100vh;
 }
 
+/*1. ô nội dung trong/ngoài*/
 /*tổng khung của ô nội dung*/
 .box {
-  width: 360px;
-  margin-top: 300px;
+  width: 550px;
+  margin: 60px auto;
   background: rgba(255, 255, 255, 0.496);
-  padding: 90px;
-  border-radius: 60px;
-  box-shadow: 0 10px 30px rgba(4, 0, 0, 0.4); /*chỉnh vân nổi cho khung*/
+  padding: 60px;
+  border-radius: 50px;
+  box-shadow: 0 10px 30px rgba(4, 0, 0, 0.4);
 }
 
+/*ô đăng kí/đănh nhập*/
 .box h1 {
-  margin-bottom: 30px;
-  margin-top: -20px;
   font-size: 40px;
-}
-
-/*tiêu đề tên phim*/
-.rap-title {
-  text-align: center;
-  margin-top: 100px;
-  margin-bottom: -250px;
-  font-size: 50px;
-  font-weight: bold;
-
-  letter-spacing: 3px;
+  font-weight: 700;
+  letter-spacing: 1px;
 }
 
 /*ô điền thông tin*/
 input {
-  width: 105%;
-  padding: 20px;
-  margin: 10px 0;
+  width: 100%;
+  padding: 25px;
+  margin: 15px 0;
   box-sizing: border-box;
 
   border-radius: 10px;
   border: 1px solid #ccc;
   background: rgba(255, 255, 255, 0.496);
+
+  /*chỉnh size chữ điền vào*/
+  font-size: 20px;
 }
 
+/*chỉnh kích thước chữ trong ô điền nội dung*/
+input::placeholder {
+  font-size: 22px;
+}
+
+/*2. hiệu ứng cho các thao tác*/
+/*hiệu ứng ô box*/
+.box:hover {
+  transform: translateY(-3px);
+  transition: 0.3s;
+}
 /*hiệu ứng hiện xanh khi bấm vào ô cần điền*/
 input:focus {
   outline: none;
-  border: 2px solid black;
+  border: 2px solid #082b59;
 }
 
 /* chỉnh màu ô đăng nhập*/
 button {
-  width: 110%;
+  width: 100%;
   padding: 20px;
   background: black;
   color: white;
@@ -78,24 +73,16 @@ button {
   transition: 0.2s;
 }
 
-button:hover {
-  background: #333;
-}
-
 button:active {
   transform: scale(0.97);
 }
 
-/*chỉnh kích thước chữ trong ô điền nội dung*/
-input::placeholder {
-  font-size: 18px;
-}
-
 /* chỉnh màu ô đăng nhập khi đưa chuột lại ô*/
 button:hover {
-  background: #082b59;
+  background: #0f2a64;
 }
 
+/*3. Hiệu ứng khi gõ sai*/
 /* màu khi nhập sai*/
 .error {
   color: rgba(255, 0, 0, 0.597);
