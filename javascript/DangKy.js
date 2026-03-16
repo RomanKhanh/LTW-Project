@@ -63,7 +63,7 @@ localStorage.setItem(
 );
 
 // chuyển trang
-window.location.href = "/html/TrangChu.html"; // gắn linh trang chủ vào đây
+window.location.href = "/html/trangchu.html"; 
 }
 );
 
