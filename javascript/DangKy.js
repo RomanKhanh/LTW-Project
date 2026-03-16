@@ -42,19 +42,28 @@ registerForm.addEventListener("submit", function (e) {
     isValid = false;
   }
 
-  if (!isValid) return;
+if (!isValid) return;
 
-  // lưu tài khoản
-  localStorage.setItem(
-    "user",
-    JSON.stringify({
-      name: name,
-      phone: phone,
-      pass: pass,
-    }),
-  );
+// kiểm tra tài khoản đã tồn tại chưa
+let savedUser = JSON.parse(localStorage.getItem("user"));
 
-  // chuyển sang trang giới thiệu hoặc trang chủ
-  window.location.href = "/html/TrangChu.html"; // gắn linh trang chủ vào đây
-});
+if (savedUser && savedUser.phone === phone) {
+  errRegPhone.innerText = "Số điện thoại này đã được đăng ký";
+  return;
+}
+
+// lưu tài khoản 
+localStorage.setItem(
+  "user",
+  JSON.stringify({
+    name: name,
+    phone: phone,
+    pass: pass,
+  }),
+);
+
+// chuyển trang
+window.location.href = "/html/TrangChu.html"; // gắn linh trang chủ vào đây
+}
+);
 
