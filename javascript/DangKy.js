@@ -48,7 +48,7 @@ if (!isValid) return;
 let savedUser = JSON.parse(localStorage.getItem("user"));
 
 if (savedUser && savedUser.phone === phone) {
-  errRegPhone.innerText = "Số điện thoại này đã được đăng ký";
+  errRegPhone.innerText = "Tên, số điện thoại này đã được đăng ký";
   return;
 }
 
