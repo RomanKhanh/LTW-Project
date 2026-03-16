@@ -9,12 +9,12 @@ body {
 /*1. ô nội dung trong/ngoài*/
 /*tổng khung của ô nội dung*/
 .box {
-  width: 550px;
+  width: 480px;
   margin: 60px auto;
   background: rgba(255, 255, 255, 0.496);
   padding: 60px;
   border-radius: 50px;
-  box-shadow: 0 10px 30px rgba(4, 0, 0, 0.4);
+  box-shadow: 0 10px 30px rgba(4, 0, 0, 0.4); /*chinh ô nổi*/
 }
 
 /*ô đăng kí/đănh nhập*/
@@ -27,8 +27,8 @@ body {
 /*ô điền thông tin*/
 input {
   width: 100%;
-  padding: 25px;
-  margin: 15px 0;
+  padding: 20px;
+  margin: 5px 0;
   box-sizing: border-box;
 
   border-radius: 10px;
@@ -84,7 +84,7 @@ button:hover {
 /* màu khi nhập sai*/
 .error {
   color: rgba(255, 0, 0, 0.597);
-  font-size: 16px;
+  font-size: 18px;
   display: block;
   margin-bottom: 10px;
 }
@@ -93,3 +93,5 @@ button:hover {
 input.error-border {
   border: 4px solid red;
 }
+
+
