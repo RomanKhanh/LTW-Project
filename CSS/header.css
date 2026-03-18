@@ -178,3 +178,10 @@
     0 0 0 2px var(--clr),
     0 0 0 6px #fff;
 }
+
+/*hiệu ứng đánh dấu trang đang chọn*/
+.navbar a.active{
+  color: red;
+  font-weight: bold;
+  border-bottom: 3px solid rgb(3, 7, 83);
+}
