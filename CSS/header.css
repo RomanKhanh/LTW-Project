@@ -79,8 +79,10 @@
   margin-bottom: 15px;
 }
 
+/*chinh text trong thân footer*/
 .footer-col p {
-  line-height: 1.6;
+  line-height: 2.0;
+  font-size: 18px;
 }
 
 .social {
