@@ -54,7 +54,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const confirmBtn = document.getElementById("btnsub");
   confirmBtn.addEventListener("click", function () {
-    alert("Thanh toán thành công!");
-    window.location.href = "/html/alertsuccess.html";
+    Swal.fire({
+      title: "Thành công!",
+      text: "Thanh toán của bạn đã hoàn tất.",
+      icon: "success",
+      confirmButtonText: "Tuyệt vời",
+    }).then((result) => {
+      // Chỉ khi người dùng nhấn nút "Tuyệt vời" (hoặc đóng alert)
+      if (result.isConfirmed) {
+        window.location.href = "/html/alertsuccess.html";
+      }
+    });
   });
 });
