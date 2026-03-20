@@ -2,14 +2,12 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial;
+  font-family: Arial, sans-serif;
 }
 
 body {
   background: #fae9bc7e;
 }
-
-/* ===== MAIN ===== */
 
 main {
   max-width: 1200px;
@@ -17,94 +15,76 @@ main {
   padding: 40px 20px;
 }
 
-/* ===== TIÊU ĐỀ ===== */
-
 h2 {
   text-align: center;
   margin-bottom: 40px;
   font-size: 38px;
-  letter-spacing: 2px;
   color: #333;
   font-weight: bold;
 }
 
-/* ===== MOVIE GRID ===== */
-
 .movie-grid {
   display: grid;
-
   grid-template-columns: repeat(3, 1fr);
-
   gap: 30px;
 }
 
-/* ===== MOVIE CARD ===== */
-
 .movie-card {
   background: white;
-
   border-radius: 10px;
-
   overflow: hidden;
-
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-
   transition: 0.3s;
+  display: flex;
+  flex-direction: column;
 }
 
 .movie-card:hover {
   transform: translateY(-5px);
-
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 .movie-card img {
   width: 100%;
-
   height: 380px;
-
   object-fit: cover;
 }
 
-/* ===== MOVIE INFO ===== */
-
 .movie-info {
-  padding: 15px;
-
+  padding: 20px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .movie-info h3 {
-  margin-bottom: 5px;
-  text-align: center;
+  margin-bottom: 20px;
   font-size: 18px;
+  min-height: 45px;
+  display: flex;
+  align-items: center;
 }
-
-/* ===== PRICE ===== */
 
 .price {
-  color: red;
-
-  font-weight: bold;
-
-  margin-bottom: 12px;
-  text-align: center;
-  font-size: 18px;
+  display: none;
 }
 
-/* ===== BOOKING BUTTON ===== */
-
 .btn-booking {
-  padding: 10px 20px;
-  background: red;
+  width: 150px;
+  padding: 12px 0;
+  background: #e50914;
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: bold;
   cursor: pointer;
-  display: block;
-  margin: auto;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(229, 9, 20, 0.2);
 }
 
 .btn-booking:hover {
   background: #b20710;
+  transform: scale(1.08);
 }

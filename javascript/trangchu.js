@@ -1,27 +1,23 @@
-document.addEventListener("DOMContentLoaded", function(){
+document.addEventListener("DOMContentLoaded", function () {
+  const buttons = document.querySelectorAll(".btn-booking");
 
-const buttons = document.querySelectorAll(".btn-booking");
+  buttons.forEach(function (button) {
+    button.addEventListener("click", function () {
+      const card = this.closest(".movie-card");
+      if (!card) return;
 
-buttons.forEach(function(button){
+      const movieName = card.querySelector("h3").innerText;
+      const moviePoster = card.querySelector("img").getAttribute("src");
 
-button.addEventListener("click", function(){
+      const movie = {
+        name: movieName,
+        poster: moviePoster,
+        timestamp: new Date().getTime()
+      };
 
-const card = this.closest(".movie-card");
+      localStorage.setItem("selectedMovie", JSON.stringify(movie));
 
-const movieName = card.querySelector("h3").innerText;
-const moviePoster = card.querySelector("img").getAttribute("src");
-
-const movie = {
-name: movieName,
-poster: moviePoster
-};
-
-localStorage.setItem("selectedMovie", JSON.stringify(movie));
-
-window.location.href = "showtime.html";
-
-});
-
-});
-
+      window.location.href = "showtime.html";
+    });
+  });
 });
