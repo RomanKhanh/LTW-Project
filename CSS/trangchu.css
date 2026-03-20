@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, sans-serif;
+  font-family: 'Roboto', Arial, sans-serif;
 }
 
 body {
@@ -46,12 +46,12 @@ h2 {
 
 .movie-card img {
   width: 100%;
-  height: 380px;
+  height: 400px;
   object-fit: cover;
 }
 
 .movie-info {
-  padding: 20px;
+  padding: 25px 20px;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -60,31 +60,40 @@ h2 {
 
 .movie-info h3 {
   margin-bottom: 20px;
-  font-size: 18px;
-  min-height: 45px;
+  font-size: 26px !important;
+  font-weight: 900;
+  color: #1a1a1a;
+  min-height: 70px;
   display: flex;
   align-items: center;
-}
-
-.price {
-  display: none;
+  justify-content: center;
+  line-height: 1.2;
 }
 
 .btn-booking {
-  width: 150px;
+  width: 160px;
   padding: 12px 0;
   background: #e50914;
   color: white;
   border: none;
-  border-radius: 25px;
+  border-radius: 4px;
   font-size: 16px;
   font-weight: bold;
+  text-transform: uppercase;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 10px rgba(229, 9, 20, 0.2);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .btn-booking:hover {
   background: #b20710;
-  transform: scale(1.08);
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(229, 9, 20, 0.3);
+}
+
+@media (max-width: 992px) {
+  .movie-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .movie-grid { grid-template-columns: 1fr; }
 }

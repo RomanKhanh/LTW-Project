@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const card = this.closest(".movie-card");
       if (!card) return;
 
-      const movieName = card.querySelector("h3").innerText;
+      const movieName = card.querySelector("h3").innerText.trim();
       const moviePoster = card.querySelector("img").getAttribute("src");
 
       const movie = {
