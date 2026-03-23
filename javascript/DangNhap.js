@@ -1,14 +1,11 @@
-// lấy form
 let loginForm = document.getElementById("loginForm");
 
-// input
 let loginName = document.getElementById("loginName");
-let loginPhone = document.getElementById("loginPhone");
+let loginContact = document.getElementById("loginContact");
 let loginPass = document.getElementById("loginPass");
 
-// lỗi
 let errName = document.getElementById("errName");
-let errPhone = document.getElementById("errPhone");
+let errContact = document.getElementById("errContact");
 let errPass = document.getElementById("errPass");
 let loginError = document.getElementById("loginError");
 
@@ -16,30 +13,26 @@ loginForm.addEventListener("submit", function (e) {
   e.preventDefault();
 
   let name = loginName.value.trim();
-  let phone = loginPhone.value.trim();
+  let contact = loginContact.value.trim();
   let pass = loginPass.value.trim();
 
-  // reset lỗi
   errName.innerText = "";
-  errPhone.innerText = "";
+  errContact.innerText = "";
   errPass.innerText = "";
   loginError.innerText = "";
 
   let isValid = true;
 
-  // kiểm tra tên
   if (name === "") {
     errName.innerText = "Vui lòng nhập tên";
     isValid = false;
   }
 
-  // kiểm tra sđt
-  if (!/^[0-9]{10}$/.test(phone)) {
-    errPhone.innerText = "Số điện thoại không hợp lệ";
+  if (contact === "") {
+    errContact.innerText = "Nhập email hoặc số điện thoại";
     isValid = false;
   }
 
-  // kiểm tra mật khẩu
   if (pass.length < 6) {
     errPass.innerText = "Mật khẩu ít nhất 6 ký tự";
     isValid = false;
@@ -47,7 +40,6 @@ loginForm.addEventListener("submit", function (e) {
 
   if (!isValid) return;
 
-  // lấy dữ liệu đã đăng ký
   let user = JSON.parse(localStorage.getItem("user"));
 
   if (!user) {
@@ -55,11 +47,13 @@ loginForm.addEventListener("submit", function (e) {
     return;
   }
 
-  // kiểm tra đăng nhập
-  if (user.name === name && user.phone === phone && user.pass === pass) {
-    // chuyển trang nếu đúng
-    window.location.href = "/html/TrangChu.html"; // gắn link trang chu vao dây
+  if (
+    user.name === name &&
+    (user.phone === contact || user.email === contact) &&
+    user.pass === pass
+  ) {
+    window.location.href = "/html/trangchu.html";
   } else {
-    loginError.innerText = "Tên hoặc mật khẩu không đúng";
+    loginError.innerText = "Thông tin đăng nhập không đúng";
   }
 });
