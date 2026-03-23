@@ -10,59 +10,73 @@ let errRegEmail = document.getElementById("errRegEmail");
 let errRegPhone = document.getElementById("errRegPhone");
 let errRegPass = document.getElementById("errRegPass");
 
-registerForm.addEventListener("submit", function (e) {
-  e.preventDefault();
+if (registerForm) {
+  registerForm.addEventListener("submit", function (e) {
+    e.preventDefault();
 
-  let name = regName.value.trim();
-  let email = regEmail.value.trim();
-  let phone = regPhone.value.trim();
-  let pass = regPass.value.trim();
+    let name = regName.value.trim();
+    let email = regEmail.value.trim();
+    let phone = regPhone.value.trim();
+    let pass = regPass.value.trim();
 
-  errRegName.innerText = "";
-  errRegEmail.innerText = "";
-  errRegPhone.innerText = "";
-  errRegPass.innerText = "";
+    errRegName.innerText = "";
+    errRegEmail.innerText = "";
+    errRegPhone.innerText = "";
+    errRegPass.innerText = "";
 
-  let isValid = true;
+    let isValid = true;
 
-  if (name === "") {
-    errRegName.innerText = "Tên không được để trống";
-    isValid = false;
-  }
+    if (name === "") {
+      errRegName.innerText = "Tên không được để trống";
+      regName.focus();
+      isValid = false;
+    }
 
-  if (!/^\S+@\S+\.\S+$/.test(email)) {
-    errRegEmail.innerText = "Email không hợp lệ";
-    isValid = false;
-  }
+    if (!/^\S+@\S+\.\S+$/.test(email)) {
+      errRegEmail.innerText = "Email không hợp lệ";
+      if (isValid) regEmail.focus();
+      isValid = false;
+    }
 
-  if (!/^[0-9]{10}$/.test(phone)) {
-    errRegPhone.innerText = "Số điện thoại không hợp lệ";
-    isValid = false;
-  }
+    if (!/^[0-9]{10}$/.test(phone)) {
+      errRegPhone.innerText = "Số điện thoại không hợp lệ";
+      if (isValid) regPhone.focus();
+      isValid = false;
+    }
 
-  if (pass.length < 6) {
-    errRegPass.innerText = "Mật khẩu ít nhất 6 ký tự";
-    isValid = false;
-  }
+    if (pass.length < 6) {
+      errRegPass.innerText = "Mật khẩu ít nhất 6 ký tự";
+      if (isValid) regPass.focus();
+      isValid = false;
+    }
 
-  if (!isValid) return;
+    if (!isValid) return;
 
-  let savedUser = JSON.parse(localStorage.getItem("user"));
+    let users = JSON.parse(localStorage.getItem("users")) || [];
 
-  if (savedUser && (savedUser.phone === phone || savedUser.email === email)) {
-    errRegPhone.innerText = "Email hoặc SĐT đã tồn tại";
-    return;
-  }
+    let isExist = users.some(
+      (u) => u.email === email || u.phone === phone
+    );
 
-  localStorage.setItem(
-    "user",
-    JSON.stringify({
+    if (isExist) {
+      errRegPhone.innerText = "Email hoặc SĐT đã tồn tại";
+      return;
+    }
+
+    let newUser = {
       name: name,
       email: email,
       phone: phone,
       pass: pass,
-    })
-  );
+    };
 
-  window.location.href = "/html/trangchu.html";
-});
+    users.push(newUser);
+
+    localStorage.setItem("users", JSON.stringify(users));
+
+    // auto login luôn
+    localStorage.setItem("currentUser", JSON.stringify(newUser));
+
+    window.location.href = "/html/trangchu.html";
+  });
+}
