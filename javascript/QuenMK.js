@@ -1,5 +1,5 @@
 function getPassword() {
-  let phone = document.getElementById("phone").value.trim();
+  let contact = document.getElementById("contact").value.trim();
   let result = document.getElementById("result");
 
   let savedUser = JSON.parse(localStorage.getItem("user"));
@@ -9,9 +9,9 @@ function getPassword() {
     return;
   }
 
-  if (phone === savedUser.phone) {
+  if (contact === savedUser.phone || contact === savedUser.email) {
     result.innerText = "Mật khẩu của bạn là: " + savedUser.pass;
   } else {
-    result.innerText = "Không tìm thấy số điện thoại này";
+    result.innerText = "Không tìm thấy email hoặc số điện thoại này";
   }
 }
