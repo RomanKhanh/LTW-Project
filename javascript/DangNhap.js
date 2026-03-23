@@ -9,51 +9,72 @@ let errContact = document.getElementById("errContact");
 let errPass = document.getElementById("errPass");
 let loginError = document.getElementById("loginError");
 
-loginForm.addEventListener("submit", function (e) {
-  e.preventDefault();
+if (loginForm) {
+  loginForm.addEventListener("submit", function (e) {
+    e.preventDefault();
 
-  let name = loginName.value.trim();
-  let contact = loginContact.value.trim();
-  let pass = loginPass.value.trim();
+    let name = loginName.value.trim();
+    let contact = loginContact.value.trim();
+    let pass = loginPass.value.trim();
 
-  errName.innerText = "";
-  errContact.innerText = "";
-  errPass.innerText = "";
-  loginError.innerText = "";
+    // reset lỗi
+    errName.innerText = "";
+    errContact.innerText = "";
+    errPass.innerText = "";
+    loginError.innerText = "";
 
-  let isValid = true;
+    let isValid = true;
 
-  if (name === "") {
-    errName.innerText = "Vui lòng nhập tên";
-    isValid = false;
-  }
+    // validate input
+    if (name === "") {
+      errName.innerText = "Vui lòng nhập tên";
+      loginName.focus();
+      isValid = false;
+    }
 
-  if (contact === "") {
-    errContact.innerText = "Nhập email hoặc số điện thoại";
-    isValid = false;
-  }
+    if (contact === "") {
+      errContact.innerText = "Nhập email hoặc số điện thoại";
+      if (isValid) loginContact.focus();
+      isValid = false;
+    }
 
-  if (pass.length < 6) {
-    errPass.innerText = "Mật khẩu ít nhất 6 ký tự";
-    isValid = false;
-  }
+    if (pass.length < 6) {
+      errPass.innerText = "Mật khẩu ít nhất 6 ký tự";
+      if (isValid) loginPass.focus();
+      isValid = false;
+    }
 
-  if (!isValid) return;
+    if (!isValid) return;
 
-  let user = JSON.parse(localStorage.getItem("user"));
+    let users = JSON.parse(localStorage.getItem("users"));
 
-  if (!user) {
-    loginError.innerText = "Chưa có tài khoản";
-    return;
-  }
+    if (!users || users.length === 0) {
+      loginError.innerText = "Chưa có tài khoản";
+      return;
+    }
 
-  if (
-    user.name === name &&
-    (user.phone === contact || user.email === contact) &&
-    user.pass === pass
-  ) {
+    // 🔹 B1: kiểm tra name + contact
+    let foundUser = users.find(
+      (u) =>
+        u.name === name &&
+        (u.phone === contact || u.email === contact)
+    );
+
+    if (!foundUser) {
+      loginError.innerText = "Sai tên hoặc email/sđt";
+      return;
+    }
+
+    // 🔹 B2: kiểm tra password riêng
+    if (foundUser.pass !== pass) {
+      errPass.innerText = "Sai mật khẩu";
+      loginPass.focus();
+      return;
+    }
+
+    // 🔹 Đăng nhập thành công
+    localStorage.setItem("currentUser", JSON.stringify(foundUser));
+
     window.location.href = "/html/trangchu.html";
-  } else {
-    loginError.innerText = "Thông tin đăng nhập không đúng";
-  }
-});
+  });
+}
