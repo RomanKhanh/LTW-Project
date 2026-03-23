@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Roboto', Arial, sans-serif;
+  font-family: Arial ;
 }
 
 body {
@@ -61,7 +61,7 @@ h2 {
 .movie-info h3 {
   margin-bottom: 20px;
   font-size: 26px !important;
-  font-weight: 900;
+  font-weight: 700;
   color: #1a1a1a;
   min-height: 70px;
   display: flex;
@@ -92,8 +92,12 @@ h2 {
 }
 
 @media (max-width: 992px) {
-  .movie-grid { grid-template-columns: repeat(2, 1fr); }
+  .movie-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 @media (max-width: 600px) {
-  .movie-grid { grid-template-columns: 1fr; }
+  .movie-grid {
+    grid-template-columns: 1fr;
+  }
 }
