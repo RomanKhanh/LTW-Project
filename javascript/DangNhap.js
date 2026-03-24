@@ -1,4 +1,4 @@
-//lấy form đăng k
+//lấy form đăng nhập
 let loginForm = document.getElementById("loginForm");
 
 //ô input
