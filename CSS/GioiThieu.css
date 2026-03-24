@@ -14,15 +14,16 @@
 }
 
 /* ===== BANNER ===== */
-
 .banner {
   width: 100%;
   max-height: 700px;
   height: auto;
-  object-fit: cover;
+  object-fit: cover; /*Ảnh không bị méo khi chỉnh kích thước page*/
   display: block;
+
 }
 
+/* =====Ảnh đầu tiên-anh rap.png =====*/
 .noidung article img:first-child {
   height: auto;
   border-radius: 6px;
@@ -34,14 +35,14 @@
 .noidung h1 {
   text-align: center;
   color: #05225c;
-  margin: 30px auto;
-  text-transform: uppercase;
-  border-bottom: 2px solid #ddd;
+  margin: 30px auto;/*30 là trên-dưới, auto là trước-sau*/
+  text-transform: uppercase; /*in hoa hết*/
+  border-bottom: 2px solid #ddd;/*gạch dưới*/
   display: block;
-  width: fit-content;
+  width: fit-content; /*gạch dưới rộng bằng nội dung phía trên*/
   padding-bottom: 5px;
   font-size: 40px;
-  letter-spacing: 2px;
+  letter-spacing: 2px; /*khoảng cách giữa các chữ cái*/
 }
 
 /* ===== ARTICLE ===== */
@@ -55,21 +56,20 @@ article {
   flex: 1;
   min-width: 250px;
   line-height: 1.7;
-  text-align: justify;
+  text-align: justify; /*căn đều 2 bên*/
   font-size: 25px;
 }
 
 /* =====  ===== */
 .media-left,
 .media-right {
-  display: flex;
+  display: flex; /*ảnh và chữ xếp ngang*/
   align-items: center;
-  gap: 60px;
-  margin: 80px 0;
+  gap: 60px; /*khoảng cách giữa ảnh và chữ*/
+  margin: 80px 0; /*khoảng cách giữa các block*/
 }
 
-/* ===== MEDIA RIGHT (chữ trái ảnh phải) ===== */
-
+/* ===== MEDIA RIGHT ===== */
 .media-left img,
 .media-right img {
   width: 45%;
@@ -80,7 +80,9 @@ article {
 }
 
 /* ===== RESPONSIVE nhỏ gọn khi màn hình nhỏ ===== */
-@media (max-width: 900px) {
+
+/*khi màn hình nhỏ hơn 90 thì layout từ ngang thành dọc: dành cho điện thoại*/
+@media (max-width: 900px) { /*khi màn hình nhỏ hơn 90 thì layout từ ngang thành dọc*/
   .media-left,
   .media-right {
     flex-direction: column;
