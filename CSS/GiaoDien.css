@@ -6,7 +6,7 @@ body {
   min-height: 100vh;
 }
 
-/*1. ô nội dung trong/ngoài*/
+/* =====1. ô chứa nội dung  ===== */
 /*tổng khung của ô nội dung*/
 .box {
   width: 480px;
@@ -17,7 +17,7 @@ body {
   box-shadow: 0 10px 30px rgba(4, 0, 0, 0.4); /*chinh ô nổi*/
 }
 
-/*ô đăng kí/đănh nhập*/
+/*ô chữ đăng kí/đănh nhập*/
 .box h1 {
   font-size: 40px;
   font-weight: 700;
@@ -44,12 +44,13 @@ input::placeholder {
   font-size: 22px;
 }
 
-/*2. hiệu ứng cho các thao tác*/
-/*hiệu ứng ô box*/
+/* ===== 2. hiệu ứng cho các thao tác ===== */
+/*hiệu ứng nổi ô box*/
 .box:hover {
   transform: translateY(-3px);
   transition: 0.3s;
 }
+
 /*hiệu ứng hiện xanh khi bấm vào ô cần điền*/
 input:focus {
   outline: none;
@@ -71,8 +72,9 @@ button {
   transition: 0.2s;
 }
 
+/*khi đưa chuột lại ô bõ thì ô sẽ nhỏ lại chút*/
 button:active {
-  transform: scale(0.97);
+  transform: scale(0.97); /*bằng 00.97 lần ô ban đầu*/
 }
 
 /* chỉnh màu ô đăng nhập khi đưa chuột lại ô*/
@@ -80,7 +82,7 @@ button:hover {
   background: #0f2a64;
 }
 
-/*3. Hiệu ứng khi gõ sai*/
+/* ===== 3. Hiệu ứng khi gõ sai ===== */
 /* màu khi nhập sai*/
 .error {
   color: rgba(255, 0, 0, 0.597);
@@ -93,5 +95,3 @@ button:hover {
 input.error-border {
   border: 4px solid red;
 }
-
-
