@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   document.getElementById("ticketPrice").textContent =
     booking.totalPrice.toLocaleString("vi-VN") + "đ";
-  const discountCodes = ["thaylinhsomot", "cicinemavippro"];
+  const discountCodes = ["thaylinhsomot", "cimovievippro"];
   const userCode = booking.discountCode;
 
   let discountPrice = 0;

@@ -21,14 +21,11 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("moviePoster").src = poster;
   }
 
-  // ===== TÊN PHIM =====
   document.getElementById("movieName").textContent = booking.movie;
 
-  // ===== THỜI GIAN =====
   document.getElementById("movieTime").textContent =
     booking.date + " - " + booking.time;
 
-  // ===== ĐỊA ĐIỂM + GHẾ =====
   document.getElementById("movieSeats").textContent =
     booking.area +
     " - " +
@@ -36,7 +33,6 @@ document.addEventListener("DOMContentLoaded", function () {
     " | Ghế: " +
     booking.seats.join(", ");
 
-  // ===== TÍNH TIỀN =====
   const ticketPrice = booking.totalPrice;
 
   document.getElementById("ticketPrice").textContent =
@@ -45,7 +41,6 @@ document.addEventListener("DOMContentLoaded", function () {
   document.getElementById("totalPrice").textContent =
     ticketPrice.toLocaleString("vi-VN") + "đ";
 
-  // ===== FORM THANH TOÁN =====
   const form = document.querySelector(".payment-form");
 
   form.addEventListener("submit", function (event) {
