@@ -1,15 +1,20 @@
 /* ===== HEADER ===== */
 
+/*thiết lập cách tính kích thước phần tử theo kiểu border-box.*/
+ 
 * {
   box-sizing: border-box;
 }
-
+/*Phần body dùng để xóa margin mặc định của trình duyệt, 
+đặt font chữ chung và thêm màu nền .*/
 body {
   margin: 0;
   font-family: Arial, sans-serif;
   background: #fae9bc7e;
 }
 
+/*.container tạo khung chính nằm giữa trang với chiều rộng tối đa 1200px,
+ nền trắng, có khoảng cách bên trong và bo góc*/
 .container {
   max-width: 1200px;
   margin: auto;
@@ -18,23 +23,30 @@ body {
   border-radius: 8px;
 }
 
+/*.layout sử dụng display: grid để chia bố cục thành 2 cột,
+ trong đó cột bên trái rộng 300px (hiển thị poster) 
+ và cột bên phải chiếm phần còn lại để hiển thị nội dung chi tiết.*/
 .layout {
   display: grid;
   grid-template-columns: 300px 1fr;
   gap: 30px;
 }
 
+/*.movie-poster img giúp hình ảnh co giãn theo khung chứa
+ nhưng không vượt quá 240px, đồng thời bo góc*/
 .movie-poster img {
   width: 100%;
   max-width: 240px;
   border-radius: 6px;
 }
 
+/*Các đoạn văn trong .movie-detail được giảm khoảng cách và dùng màu xám*/
 .movie-detail p {
   margin: 6px 0;
   color: #555;
 }
 
+/*.movie-tag dùng để hiển thị nhãn  với nền đỏ, chữ trắng, kích thước nhỏ và bo góc.*/
 .movie-tag {
   display: inline-block;
   margin-top: 8px;
@@ -45,28 +57,34 @@ body {
   font-size: 13px;
 }
 
+/*h2 có viền trái đỏ và có khoảng cách lề trái*/
 h2 {
   margin: 25px 0 15px;
   border-left: 4px solid #e71a0f;
   padding-left: 10px;
 }
 
+/*.option-groupsử dụng flexbox để sắp xếp các phần tử
+ theo hàng ngang và tự động xuống dòng khi không đủ chỗ.*/
 .option-group {
   display: flex;
   flex-wrap: wrap;
   gap: 15px;
 }
 
+/*.cinema-list */
 .cinema-list {
   margin-top: 10px;
 }
 
+/*.date-list hiển thị theo hàng ngang và có khoảng cách giữa các nút.*/
 .date-list {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
 }
 
+/*.date-list button có padding, viền và con trỏ dạng pointer để biểu thị có thể click.*/
 .date-list button {
   padding: 10px 14px;
   border: 1px solid #ccc;
@@ -74,12 +92,15 @@ h2 {
   cursor: pointer;
 }
 
+/*Khi một ngày được chọn, nút sẽ đổi sang màu đỏ và chữ trắng để làm nổi bật trạng thái active.*/
 .date-list button.active {
   background: #e71a0f;
   color: #fff;
   border-color: #e71a0f;
 }
 
+/*.showtime-list dùng grid để tự động chia nhiều cột,
+ mỗi ô tối thiểu 100px và tự co giãn theo màn hình.*/
 .showtime-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
@@ -87,6 +108,7 @@ h2 {
   margin-bottom: 20px;
 }
 
+/*Mỗi giờ chiếu là một ô có viền, căn giữa nội dung, có thể click và được bo góc.*/
 .showtime {
   border: 1px solid #333;
   padding: 14px 0;
@@ -97,12 +119,14 @@ h2 {
   border-radius: 4px;
 }
 
+/*Khi chọn giờ chiếu, ô sẽ đổi sang màu đỏ.*/
 .showtime.selected {
   background: #e71a0f;
   color: #fff;
   border-color: #e71a0f;
 }
 
+/*hiển thị thông tin xác nhận với nền xám trắng*/
 .confirm-box {
   padding: 15px;
   background: #f9f9f9;
@@ -114,6 +138,8 @@ h2 {
   margin: 6px 0;
 }
 
+/*Nút “Tiếp tục chọn ghế” có màu đỏ, chữ trắng,
+ bo góc và chiếm toàn bộ chiều ngang*/
 .btn-next {
   padding: 12px 20px;
   background: #e71a0f;
@@ -125,11 +151,13 @@ h2 {
   width: 100%;
 }
 
+/*Khi nút bị vô hiệu hóa, màu sẽ chuyển sang xám và không thể click*/
 .btn-next:disabled {
   background: #aaa;
   cursor: not-allowed;
 }
 
+/*giúp khi màn hình nhỏ hơn 900px thì layout chuyển thành 1 cột*/
 @media (max-width: 900px) {
   .layout {
     grid-template-columns: 1fr;

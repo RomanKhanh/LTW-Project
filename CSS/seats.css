@@ -1,13 +1,17 @@
+/*Xóa margin mặc định, thiết lập font chữ chung 
+và đặt màu nền cho toàn bộ trang.*/
 body {
   margin: 0;
   font-family: Arial, sans-serif;
   background: #fae9bc7e;
 }
 
+/*.main được đặt chiều cao tối thiểu 600px*/
 main {
   min-height: 600px;
 }
 
+/*.container tạo khung chính ở giữa trang với nền trắng, có padding và bo góc.*/
 .container {
   max-width: 1000px;
   margin: auto;
@@ -16,6 +20,7 @@ main {
   border-radius: 8px;
 }
 
+/*.back là nút quay lại, có màu đỏ, con trỏ dạng click và hiển thị dạng inline-block.*/
 .back {
   cursor: pointer;
   color: #e71a0f;
@@ -23,6 +28,7 @@ main {
   display: inline-block;
 }
 
+/*.confirm-info hiển thị thông tin đã chọn với nền xám nhạt, viền và bo góc.*/
 .confirm-info {
   background: #f9f9f9;
   border: 1px solid #ddd;
@@ -31,6 +37,7 @@ main {
   margin-bottom: 20px;
 }
 
+/*.screen được căn giữa, nền xám và chữ in đậm.*/
 .screen {
   margin: 25px 0;
   background: #ccc;
@@ -40,6 +47,7 @@ main {
   border-radius: 4px;
 }
 
+/*.seats dùng grid để chia ghế thành 2 bên, mỗi bên 6 ghế và khoảng giữa 100px*/
 .seats {
   display: grid;
   grid-template-columns: repeat(6, 1fr) 100px repeat(6, 1fr);
@@ -48,11 +56,14 @@ main {
   margin-bottom: 20px;
 }
 
+/*cố định mỗi phần về tử chiều rộng và chiều cao*/
 .aisle {
   width: 100px;
   height: 38px;
 }
 
+/*Thiết lập kích thước phần tử, căn giữa nội dung bằng line-height và text-align,
+ đặt kích thước chữ, bo góc và đổi kiểu con trỏ khi di chuột vào.*/
 .seat {
   width: 38px;
   height: 38px;
@@ -63,29 +74,38 @@ main {
   cursor: pointer;
 }
 
+/*màu nền trắng*/
 .available {
   background: #ddd;
 }
+
+/*màu nền xanh lá màu chữ trắng*/
 .selected {
   background: #4caf50;
   color: #fff;
 }
+
+/*Đặt màu nền đen, màu chữ trắng và 
+thay đổi kiểu con trỏ sang trạng thái không cho phép tương tác*/
 .sold {
   background: #444;
   color: #fff;
   cursor: not-allowed;
 }
 
+/*tạo khoảng trên*/
 .summary {
   margin-top: 10px;
 }
 
+/*chữ in đậm, màu chữ đỏ và khoảng cách trên*/
 .price {
   font-weight: bold;
   color: #e71a0f;
   margin-top: 5px;
 }
-
+/*.legend dùng flexbox để bố trí phần tử, tạo khoảng cách giữa các phần tử con,
+ cho phép xuống dòng và thiết lập kích thước chữ.*/
 .legend {
   display: flex;
   gap: 25px;
@@ -93,19 +113,23 @@ main {
   flex-wrap: wrap;
   font-size: 14px;
 }
-
+/*Dùng flex để căn chỉnh các phần tử con theo trục ngang 
+và căn giữa theo chiều dọc, đồng thời tạo khoảng cách*/
 .legend-item {
   display: flex;
   align-items: center;
   gap: 6px;
 }
 
+/*Thiết lập kích thước phần tử và bo góc*/
 .legend-box {
   width: 18px;
   height: 18px;
   border-radius: 3px;
 }
 
+/*Thiết lập khoảng cách, kích thước vùng đệm, chiều rộng, màu nền đỏ, 
+màu chữ trắng, bỏ viền, kích thước chữ, kiểu con trỏ và bo góc.*/
 .btn {
   margin-top: 20px;
   padding: 12px;
@@ -118,11 +142,15 @@ main {
   border-radius: 4px;
 }
 
+/*chuyển nền xám khi phần tử ở trạng thái disabled và thay đổi con trỏ.*/
 .btn:disabled {
   background: #aaa;
   cursor: not-allowed;
 }
 
+/*Thiết lập phần tử ẩn bằng display: none, định vị cố định bằng position: fixed,
+đặt kích thước toàn màn hình, màu nền với độ trong suốt, 
+căn chỉnh bằng flex và thiết lập thứ tự hiển thị bằng z-index.*/
 .modal {
   display: none;
   position: fixed;
@@ -136,6 +164,8 @@ main {
   z-index: 999;
 }
 
+/*Thiết lập màu nền, khoảng đệm, kích thước tương đối, giới hạn chiều rộng tối đa,
+ bo góc, định vị tương đối và áp dụng hiệu ứng animation.*/
 .modal-content {
   background: #fff;
   padding: 25px;
@@ -146,6 +176,7 @@ main {
   animation: fadeIn 0.2s ease-in-out;
 }
 
+/*.close dùng để đặt phần tử ở góc trên bên phải bằng position absolute và cho phép click.*/
 .close {
   position: absolute;
   right: 12px;
@@ -154,6 +185,7 @@ main {
   cursor: pointer;
 }
 
+/*Định nghĩa animation với trạng thái bắt đầu và kết thúc*/
 @keyframes fadeIn {
   from {
     transform: scale(0.9);
