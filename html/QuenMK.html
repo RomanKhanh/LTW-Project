@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/CSS/GiaoDien.css" />
-    <link rel="stylesheet" href="/CSS/header.css" />
+    <link rel="stylesheet" href="/CSS/headerDN-DK.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
@@ -15,18 +15,16 @@
   <body>
     <header class="header">
       <div class="logo">
-        <img src="/img/ChatGPT Image Mar 9, 2026, 10_08_36 PM.png" />
+        <a href="/html/trangchu.html">
+          <img src="/img/ChatGPT Image Mar 9, 2026, 10_08_36 PM.png" />
+        </a>
       </div>
-
-      <nav class="navbar">
-        <ul>
-          <li><a href="/html/trangchu.html">Trang chủ</a></li>
-          <li><a href="/html/GioiThieu.html">Giới thiệu</a></li>
-          <li><a href="/html/DangNhap.html" class="active">Đăng nhập</a></li>
-          <li><a href="/html/DangKy.html"> Đăng ký</a></li>
-          <li><a href="/html/Payment.html">Thanh toán</a></li>
-        </ul>
-      </nav>
+      <div class="welcome">
+        <p>🎬 CHÀO MỪNG BẠN ĐẾN VỚI CIMOVIE</p>
+      </div>
+      <div>
+        <p class="sub-text">Thế giới điện ảnh trong tầm tay bạn</p>
+      </div>
     </header>
     <main>
       <div class="box">
@@ -37,15 +35,19 @@
             return false;
           "
         >
-          <input
-            type="text"
-            id="contact"
-            placeholder="Nhập email hoặc số điện thoại"
-          />
+          <input type="text" id="contact" placeholder="Nhập email" />
           <span class="error" id="result"></span>
 
           <button type="submit">Xem mật khẩu</button>
         </form>
+        <p>
+          Quay lại đăng nhập
+          <a href="/html/DangNhap.html">Đăng nhập</a>
+        </p>
+        <p>
+          Chưa có tài khoản?
+          <a href="/html/DangKy.html">Đăng ký</a>
+        </p>
       </div>
     </main>
 

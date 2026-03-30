@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/CSS/GiaoDien.css" />
-    <link rel="stylesheet" href="/CSS/header.css" />
+    <link rel="stylesheet" href="/CSS/headerDN-DK.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
@@ -15,19 +15,17 @@
   <body>
     <header class="header">
       <div class="logo">
+      <a href="/html/trangchu.html">
         <img src="/img/ChatGPT Image Mar 9, 2026, 10_08_36 PM.png" />
+      </a>
       </div>
-
-      <nav class="navbar">
-        <ul>
-          <li><a href="/html/trangchu.html">Trang chủ</a></li>
-          <li><a href="/html/GioiThieu.html">Giới thiệu</a></li>
-          <li><a href="/html/DangNhap.html">Đăng nhập</a></li>
-          <li><a href="/html/DangKy.html" class="active">Đăng ký</a></li>
-          <li><a href="/html/Payment.html">Thanh toán</a></li>
-        </ul>
-      </nav>
-    </header>
+    <div class="welcome">
+    <p>CHÀO MỪNG BẠN ĐẾN VỚI CIMOVIE</p>
+  </div>
+  <div>    
+    <p class="sub-text">Thế giới điện ảnh trong tầm tay bạn</p>
+</div>
+</header>
     <main>
     <div class="box">
       <h1>Đăng ký</h1>
@@ -38,9 +36,6 @@
 
         <input type="email" id="regEmail" placeholder="Email" />
         <span class="error" id="errRegEmail"></span>
-
-        <input type="tel" id="regPhone" placeholder="Số điện thoại" />
-        <span class="error" id="errRegPhone"></span>
 
         <input type="password" id="regPass" placeholder="Mật khẩu" />
         <span class="error" id="errRegPass"></span>
@@ -77,7 +72,7 @@
 
             <div class="menu">
               <div class="toggle">
-                <ion-icon name="share-social"></ion-icon>
+                <ion-icon name="share-social"></icon-icon>
               </div>
               <li style="--i: 0; --clr: #1877f2">
                 <a href="#"><i class="fab fa-facebook-f"></i></a>

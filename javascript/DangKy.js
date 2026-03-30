@@ -4,29 +4,26 @@ let registerForm = document.getElementById("registerForm");
 //ô input
 let regName = document.getElementById("regName");
 let regEmail = document.getElementById("regEmail");
-let regPhone = document.getElementById("regPhone");
 let regPass = document.getElementById("regPass");
 
 //hiển thị lỗi khi không thỏa điều kiện hoặc nhập sai
 let errRegName = document.getElementById("errRegName");
 let errRegEmail = document.getElementById("errRegEmail");
-let errRegPhone = document.getElementById("errRegPhone");
 let errRegPass = document.getElementById("errRegPass");
 
 if (registerForm) {
-  registerForm.addEventListener("submit", function (e) {//khi bấm submit thì hàm sẽ chạy
+  registerForm.addEventListener("submit", function (e) {
+    //khi bấm submit thì hàm sẽ chạy
     e.preventDefault(); // ngăn reload trang, làm mất dữ liệu đang có
 
     //lấy dữ liệu người dùng, trim():bỏ khoảng trống đầu cuối
     let name = regName.value.trim();
     let email = regEmail.value.trim();
-    let phone = regPhone.value.trim();
     let pass = regPass.value.trim();
 
     //reset thông báo lỗi trước khi validate lại
     errRegName.innerText = "";
     errRegEmail.innerText = "";
-    errRegPhone.innerText = "";
     errRegPass.innerText = "";
 
     //nếu các giá trị nhập vào hợp lệ với điều kiện
@@ -35,42 +32,38 @@ if (registerForm) {
     //nếu tên để trống
     if (name === "") {
       errRegName.innerText = "Tên không được để trống";
-      regName.focus();//focus vào ô name khi có lỗi
-      isValid = false;//giá trị sai->không thỏa điều kiện
+      regName.focus(); //focus vào ô name khi có lỗi
+      isValid = false; //giá trị sai->không thỏa điều kiện
     }
 
-    if (!/^\S+@\S+\.\S+$/.test(email)) { //kiểm tra xem có các kí tự đặc biệt thỏa tên mail không
+    //email bị trống
+    if (!/^\S+@\S+\.\S+$/.test(email)) {
+      //kiểm tra xem có các kí tự đặc biệt thỏa tên mail không
       errRegEmail.innerText = "Email không hợp lệ";
-      if (isValid) regEmail.focus();//chỉ focus email khi ô nhập trước nó không có lỗi
+      if (isValid) regEmail.focus(); //chỉ focus email khi ô nhập trước nó không có lỗi
       isValid = false;
     }
 
-    if (!/^[0-9]{10}$/.test(phone)) {//kiểm tra xem số điện thoại nhâp có đủ 10 số không
-      errRegPhone.innerText = "Số điện thoại không hợp lệ";
-      if (isValid) regPhone.focus();//chỉ focus vào ô khi ô trước ô này không có lỗi
-      isValid = false;
-    }
-
-    if (pass.length < 6) { // điều kiện: mật khẩu ít nhất 6 kí tự
+    //khi mật khẩu không thỏa điều kiện
+    if (pass.length < 6) {
+      // điều kiện: mật khẩu ít nhất 6 kí tự
       errRegPass.innerText = "Mật khẩu ít nhất 6 ký tự";
-      if (isValid) regPass.focus();//chỉ focus vào ô khi ô trước ô này không có lỗi
+      if (isValid) regPass.focus(); //chỉ focus vào ô khi ô trước ô này không có lỗi
       isValid = false;
     }
 
-    if (!isValid) return;//có lỗi thì dừng
+    if (!isValid) return; //có lỗi thì dừng
 
     //lấy dữ liệu lưu trong localStorage, nếu chưa có thì sẽ tạo mảng rỗng lưu vào
     let users = JSON.parse(localStorage.getItem("users")) || [];
- 
+
     //hàm kiểm tra có trùng không
     //.some()) trả về true nếu có phần tử trùng
-    let isExist = users.some(
-      (u) => u.email === email || u.phone === phone
-    );
+    let isExist = users.some((u) => u.email === email);
 
     //kiểm giá trị isExis để xem có trùng không
     if (isExist) {
-      errRegPhone.innerText = "Email hoặc SĐT đã tồn tại";
+      errRegEmail.innerText = "Email đã tồn tại";
       return;
     }
 
@@ -78,7 +71,6 @@ if (registerForm) {
     let newUser = {
       name: name,
       email: email,
-      phone: phone,
       pass: pass,
     };
 

@@ -1,4 +1,4 @@
-//lấy form đăng nhập
+//lấy form đăng nhap
 let loginForm = document.getElementById("loginForm");
 
 //ô input
@@ -40,15 +40,15 @@ if (loginForm) {
 
     //kiểm tra có nhập hay không, nếu khác với nội dung đăng ký thì không check regex
     if (contact === "") {
-      errContact.innerText = "Nhập email hoặc số điện thoại";
-      if (isValid) loginContact.focus();//chỉ focus lỗi đầu tiên
+      errContact.innerText = "Nhập email";
+      if (isValid) loginContact.focus(); //chỉ focus lỗi đầu tiên
       isValid = false;
     }
 
     //nhâp mật khẩu ít nhất 6 kí tự
     if (pass.length < 6) {
       errPass.innerText = "Mật khẩu ít nhất 6 ký tự";
-      if (isValid) loginPass.focus();//chỉ focus vào ô khi ô trước ô này không có lỗi
+      if (isValid) loginPass.focus(); //chỉ focus vào ô khi ô trước ô này không có lỗi
       isValid = false;
     }
 
@@ -65,20 +65,20 @@ if (loginForm) {
     }
 
     // ========== B1: kiểm tra name + contact ==========
-    let foundUser = users.find(//find: tìm user thỏa điều kiện là đúng số điện thoại hoặc email
-      (u) =>
-        u.name === name &&
-        (u.phone === contact || u.email === contact)
+    let foundUser = users.find(
+      //find: tìm user thỏa điều kiện là đúng số điện thoại hoặc email
+      (u) => u.name === name && u.email === contact,
     );
 
     //nếu không kiếm thấy
     if (!foundUser) {
-      loginError.innerText = "Sai tên hoặc email/sđt";
+      loginError.innerText = "Sai tên hoặc email";
       return;
     }
 
     // ========== B2: kiểm tra password riêng ==========
-    if (foundUser.pass !== pass) { // so sánh password
+    if (foundUser.pass !== pass) {
+      // so sánh password
       errPass.innerText = "Sai mật khẩu";
       loginPass.focus();
       return;
